@@ -1,5 +1,5 @@
 <h1>Posts</h1>
-<%= link_to 'New post', new_post_path %>
+<%= link_to 'New post', new_post_path, class:'btn btn-default btn-xs' %>
 <table>
   <tr>
     <th>Text</th>
@@ -9,11 +9,15 @@
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.text %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Show', post_path(post), class:'btn btn-success btn-xs' %></td>
+      <td><%= link_to 'Edit', edit_post_path(post), class:'btn btn-info btn-xs'%></td>
       <td><%= link_to 'Destroy', post_path(post),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' }, class:'btn btn-danger btn-xs' %></td>
     </tr>
-  <% end %>
+    <% end %>
 </table>
+
+<%= link_to posts_path, class: 'btn btn-success btn-xs' do %>
+  <i class='glyphicon glyphicon-home'></i> Back Home
+<% end %>
